@@ -1,11 +1,11 @@
+<form [formGroup]="formGroup">
+  <h1>Lista de libros</h1>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Buscar libro</mat-label>
+    <input matInput placeholder="Don quijote..." formControlName="search" />
+  </mat-form-field>
+</form>
 <div class="container-books" *ngIf="!status.detalle">
-  <form [formGroup]="formGroup">
-    <h1>Lista de libros</h1>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Buscar libro</mat-label>
-      <input matInput placeholder="Don quijote..." formControlName="search" />
-    </mat-form-field>
-  </form>
   <div *ngFor="let item of listBooks$ | async; let i = index">
     <mat-card class="example-card">
       <mat-card-header>

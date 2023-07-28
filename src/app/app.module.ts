@@ -8,7 +8,6 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListBooksComponent } from './components/list-books/list-books.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
@@ -22,7 +21,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
