@@ -1,0 +1,78 @@
+<div class="container-books" *ngIf="!status.detalle">
+  <form [formGroup]="formGroup">
+    <h1>Lista de libros</h1>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Buscar libro</mat-label>
+      <input matInput placeholder="Don quijote..." formControlName="search" />
+    </mat-form-field>
+  </form>
+  <div *ngFor="let item of listBooks$ | async; let i = index">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title
+          ><h4>{{ item.title }}</h4></mat-card-title
+        >
+        <mat-card-subtitle><b>ISBN:</b> {{ item.isbn }}</mat-card-subtitle>
+      </mat-card-header>
+      <section class="img-container">
+        <img
+          mat-card-image
+          [src]="item.cover_image ? item.cover_image : imgVacio"
+          alt="Photo of a Shiba Inu"
+        />
+        <span class="sin-portada" *ngIf="item.cover_image === ''"
+          ><b>Sin Cover</b></span
+        >
+      </section>
+      <mat-card-content>
+        <ul>
+          <li><b>Lanzamiento: </b> {{ item.releaseDate }}</li>
+          <li><b>Total de paginas: </b> {{ item.pages }}</li>
+        </ul>
+        <ng-container
+          *ngIf="item?.read; then thenTemplate; else elseTemplate"
+        ></ng-container>
+        <ng-template #thenTemplate>
+          <p>Enhorabuena libro leido!</p>
+        </ng-template>
+        <ng-template #elseTemplate>
+          <div>
+            <mat-checkbox class="example-margin" (click)="checkLeido(item)"
+              >Marcar como leido</mat-checkbox
+            >
+          </div>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions>
+        <section>
+          <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="viewBook(item)">
+              Por Input@
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              routerLink="book/{{ item.id }}"
+              [queryParams]="item"
+            >
+              Por ruta
+            </button>
+          </div>
+        </section>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<!-- Componente hijo para mostrar detalles, desde @Input -->
+<div class="container-detail" *ngIf="status.detalle">
+  <app-book-detail [book]="bookSeleted"></app-book-detail>
+  <div class="btn-back">
+    <h3>
+      Aquí usamos el @Input() para mostrar los detalles del libro en el
+      componente hijo
+    </h3>
+    <button mat-raised-button color="warn" (click)="viewBook()">
+      Regresar
+    </button>
+  </div>
+</div>

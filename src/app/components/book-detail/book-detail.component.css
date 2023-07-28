@@ -1,0 +1,30 @@
+.example-card{
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 5vh;
+}
+.img-container{
+  position: relative;
+}
+.sin-cover{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin: 0 auto;
+}
+.footer{
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .example-card{
+    width: 40%;
+    margin-top: 10vh;
+  }
+}
+@media (min-width: 1024px) {
+  .example-card{
+    width: 20%;
+  }
+}

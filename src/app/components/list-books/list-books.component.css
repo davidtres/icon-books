@@ -1,0 +1,52 @@
+.container-books{
+  padding: 5px;
+  width: auto;
+  margin: 0 auto;
+}
+form{
+  text-align: center;
+}
+.img-container{
+  position: relative;
+}
+.sin-portada{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin: 0 auto;
+}
+.example-card {
+  max-width: 280px;
+  padding: 0 20px;
+  margin: 0 auto;
+  border: 1px solid lightgray;
+  margin-bottom: 15px;
+}
+
+img{
+  min-height: 363px;
+  max-height: 363px;
+}
+mat-card-actions{
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+.example-full-width {
+  width: 100%;
+}
+.btn-back{
+  text-align: center;
+  margin-top: 20px;
+}
+@media (min-width: 1024px) {
+  .container-books{
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  img{
+    max-width: 240px;
+  }
+}
