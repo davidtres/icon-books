@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ListBooksComponent implements OnInit {
   public formGroup!: FormGroup; //variable para formulario
-  imgVacio = '../../../assets/img/libro.jpeg';
+  imgVacio = 'assets/img/libro.jpeg';
   listBooks$: Observable<Book[]> = new Observable<Book[]>();
   bookSeleted: Book | undefined;
   status = {

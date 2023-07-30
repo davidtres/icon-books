@@ -9,7 +9,7 @@ import { Book } from 'src/app/interface/book';
 })
 export class BookDetailComponent implements OnInit {
   @Input() book: Book | undefined;
-  imgVacio = '../../../assets/img/libro.jpeg';
+  imgVacio = 'assets/img/libro.jpeg';
   status = {
     params: false,
   };
