@@ -1,37 +1,41 @@
-s
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title
-      ><h4>{{ bookDetail?.title }}</h4></mat-card-title
-    >
-    <mat-card-subtitle><b>ISBN:</b> {{ bookDetail?.isbn }}</mat-card-subtitle>
-  </mat-card-header>
-  <section class="img-container">
-    <img
-      mat-card-image
-      [src]="bookDetail?.cover_image ? bookDetail?.cover_image : imgVacio"
-      alt="Imagen de libro"
-    />
-    <h2 class="sin-cover" *ngIf="bookDetail?.cover_image === ''">
-      <b>Sin Cover</b>
-    </h2>
-  </section>
-  <mat-card-content>
-    <ul>
-      <li><b>Lanzamiento: </b> {{ bookDetail?.releaseDate }}</li>
-      <li><b>Total de paginas: </b> {{ bookDetail?.pages }}</li>
-    </ul>
-  </mat-card-content>
-</mat-card>
+<div [ngClass]="{ 'modal-overlay': !status.params }">
+  <mat-card
+    class="example-card"
+    [ngClass]="{ 'modal-container': !status.params }"
+  >
+    <mat-card-header>
+      <mat-card-title
+        ><h4>{{ bookDetail?.title }}</h4></mat-card-title
+      >
+      <mat-card-subtitle><b>ISBN:</b> {{ bookDetail?.isbn }}</mat-card-subtitle>
+    </mat-card-header>
+    <section class="img-container">
+      <img
+        mat-card-image
+        [src]="bookDetail?.cover_image ? bookDetail?.cover_image : imgVacio"
+        alt="Imagen de libro"
+      />
+      <h2 class="sin-cover" *ngIf="bookDetail?.cover_image === ''">
+        <b>Sin Cover</b>
+      </h2>
+    </section>
+    <mat-card-content>
+      <ul>
+        <li><b>Lanzamiento: </b> {{ bookDetail?.releaseDate }}</li>
+        <li><b>Total de paginas: </b> {{ bookDetail?.pages }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
 
-<div class="footer" *ngIf="status.params">
-  <h3>
-    Aquí reutilizamos en componente de "detalle", recuperando la data por
-    parametros en la url.
-  </h3>
-  <p>
-    Me haría falta el endpoint del Backend, para recuperar el Id por la ruta y
-    hacer la petición get especifica por el id del libro elegido
-  </p>
-  <button mat-raised-button color="warn" routerLink="">Regresar</button>
+  <div class="footer" *ngIf="status.params">
+    <h3>
+      Aquí reutilizamos en componente de "detalle", recuperando la data por
+      parametros en la url.
+    </h3>
+    <p>
+      Me haría falta el endpoint del Backend, para recuperar el Id por la ruta y
+      hacer la petición get especifica por el id del libro elegido
+    </p>
+    <button mat-raised-button color="warn" routerLink="">Regresar</button>
+  </div>
 </div>

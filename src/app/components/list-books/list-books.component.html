@@ -47,7 +47,7 @@
         <section>
           <div class="example-button-row">
             <button mat-raised-button color="primary" (click)="viewBook(item)">
-              Por Input@
+              Por @Input
             </button>
             <button
               mat-raised-button
@@ -64,7 +64,7 @@
   </div>
 </div>
 <!-- Componente hijo para mostrar detalles, desde @Input -->
-<div class="container-detail" *ngIf="status.detalle">
+<div *ngIf="status.detalle" class="container-detail">
   <app-book-detail [book]="bookSeleted"></app-book-detail>
   <div class="btn-back">
     <h3>

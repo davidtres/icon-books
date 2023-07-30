@@ -39,8 +39,9 @@ mat-card-actions{
 }
 .btn-back{
   text-align: center;
-  margin-top: 20px;
+  margin-top: 70vh;
 }
+
 @media (min-width: 1025px) {
   .container-books{
     display: flex;
